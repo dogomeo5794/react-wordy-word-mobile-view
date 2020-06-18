@@ -97,13 +97,24 @@ export class MainBody extends Component {
         } )
       
       console.log(this.state.words);
-      let joined = this.tree(this.state.words.split("")).map(function (str) {
-        return str.join("");
-      });
+      // let joined = this.tree(this.state.words.split("")).map(function (str) {
+      //   return str.join("");
+      // });
 
-      let words = joined.filter(function (item, pos, self) {
-        return self.indexOf(item) === pos && item in english && item.length >= 3;
-      });
+      // let words = joined.filter(function (item, pos, self) {
+      //   return self.indexOf(item) === pos && item in english && item.length >= 3;
+      // });
+      let filtered = this.tree(this.state.words.split('')).filter(function(item) {
+          return item.join('') in english && item.join('').length >= 3
+      })
+
+      let joined = filtered.map(function(item, pos, self) {
+          return item.join('');
+      })
+
+      let words = joined.filter(function(item, pos, self) {
+          return self.indexOf(item) == pos 
+      })
       this.setState({
         random: words,
       });

@@ -24,14 +24,14 @@ export class LayoutTextFields extends Component {
           label="Input Random Letters"
           style={{ margin: 8 }}
           // placeholder="Placeholder"
-          // helperText="Full width (this is helper text)!"
+          helperText={(words.length)+'/8 Letters'}
           fullWidth
           margin="normal"
           // InputLabelProps={{
           // //   shrink: true,
           // }}
           inputProps={{
-            maxLength: 7,
+            maxLength: 8,
             min: 1,
             style: {
               textTransform: "uppercase",
